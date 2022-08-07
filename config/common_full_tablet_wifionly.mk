@@ -7,3 +7,4 @@ PRODUCT_PACKAGES += \
 
 # Include havoc LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/havoc/overlay/dictionaries
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/havoc/overlay/dictionaries

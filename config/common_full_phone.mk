@@ -7,5 +7,6 @@ PRODUCT_PACKAGES += \
 
 # Include Havoc LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/havoc/overlay/dictionaries
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/havoc/overlay/dictionaries
 
 $(call inherit-product, vendor/havoc/config/telephony.mk)
