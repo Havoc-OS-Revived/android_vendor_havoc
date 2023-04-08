@@ -4,18 +4,11 @@ $(call inherit-product, vendor/lineage/config/common.mk)
 # Apps
 PRODUCT_PACKAGES += \
     Aperture \
-    Backgrounds \
-    Eleven \
     Etar \
     ExactCalculator \
     Jelly \
     Profiles \
     Seedvault
-
-ifneq ($(TARGET_EXCLUDES_AUDIOFX),true)
-PRODUCT_PACKAGES += \
-    AudioFX
-endif
 
 # Charger
 PRODUCT_PACKAGES += \
