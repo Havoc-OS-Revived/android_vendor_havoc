@@ -97,3 +97,18 @@ PRODUCT_PACKAGES += \
     libtextclassifier_annotator_universal_model \
     libtextclassifier_actions_suggestions_universal_model \
     libtextclassifier_lang_id_model
+
+# Face Unlock
+TARGET_FACE_UNLOCK_SUPPORTED ?= true
+ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
+    PRODUCT_PACKAGES += \
+        FaceUnlockService
+    PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+        ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
+    PRODUCT_COPY_FILES += \
+        frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/android.hardware.biometrics.face.xml
+    $(call inherit-product-if-exists, external/faceunlock/config.mk)
+else
+    PRODUCT_PACKAGES += \
+        SettingsGoogleFutureFaceEnroll
+endif
