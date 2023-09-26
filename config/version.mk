@@ -11,7 +11,7 @@ PRODUCT_PACKAGES += \
 
 TARGET_PRODUCT_SHORT := $(subst havoc_,,$(HAVOC_BUILD_TYPE))
 
-HAVOC_VERSION = 4.21
+HAVOC_VERSION = 4.22
 HAVOC_BUILD_DATE := $(shell date -u +%d-%m-%Y)
 HAVOC_FINGERPRINT := Havoc-OS/v$(HAVOC_VERSION)/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(shell date -u +%Y%m%d)/$(shell date -u +%H%M)
 
