@@ -236,6 +236,16 @@ PRODUCT_PACKAGES += \
     GalleryGoPrebuilt
 endif
 
+# BCR 
+ifneq ($(TARGET_INCLUDE_BCR),true)
+$(call inherit-product, vendor/bcr/bcr.mk)
+endif
+
+# Lawnchair
+ifneq ($(TARGET_INCLUDE_LAWNCHAIR),true)
+$(call inherit-product, vendor/lawnchair/lawnchair.mk)
+endif
+
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED ?= true
 ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
