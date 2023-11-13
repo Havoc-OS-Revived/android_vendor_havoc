@@ -237,9 +237,7 @@ PRODUCT_PACKAGES += \
 endif
 
 # BCR 
-ifneq ($(TARGET_INCLUDE_BCR),true)
 $(call inherit-product, vendor/bcr/bcr.mk)
-endif
 
 # Lawnchair
 ifneq ($(TARGET_INCLUDE_LAWNCHAIR),true)
