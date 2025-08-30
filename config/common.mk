@@ -37,10 +37,20 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
 endif
 
 # Blur
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.sf.blurs_are_expensive=1 \
-    ro.surface_flinger.supports_background_blur=1 \
-    persist.sys.sf.disable_blurs=1
+ifndef TARGET_NOT_USES_BLUR
+    USES_BLUR=1
+endif
+
+ifeq ($(TARGET_NOT_USES_BLUR),true)
+    USES_BLUR=0
+else
+    USES_BLUR=1
+endif
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.sf.blurs_are_expensive=$(USES_BLUR) \
+    ro.surface_flinger.supports_background_blur=$(USES_BLUR) \
+    persist.sysui.disableBlur=$(shell echo $$((1 - $(USES_BLUR))))
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
@@ -240,7 +250,7 @@ endif
 $(call inherit-product, vendor/bcr/bcr.mk)
 
 # Lawnchair
-ifneq ($(TARGET_INCLUDE_LAWNCHAIR),true)
+ifeq ($(TARGET_INCLUDE_LAWNCHAIR),true)
 $(call inherit-product, vendor/lawnchair/lawnchair.mk)
 endif
 
