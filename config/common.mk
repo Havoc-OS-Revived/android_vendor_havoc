@@ -240,7 +240,7 @@ endif
 $(call inherit-product, vendor/bcr/bcr.mk)
 
 # Lawnchair
-ifneq ($(TARGET_INCLUDE_LAWNCHAIR),true)
+ifeq ($(TARGET_INCLUDE_LAWNCHAIR),true)
 $(call inherit-product, vendor/lawnchair/lawnchair.mk)
 endif
 
