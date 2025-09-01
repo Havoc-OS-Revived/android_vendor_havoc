@@ -273,7 +273,12 @@ PRODUCT_PACKAGES += \
 
 # GApps
 ifeq ($(WITH_GAPPS),true)
-include vendor/gapps/config.mk
+include vendor/gapps/arm64/arm64-vendor.mk
+endif
+
+# GApps 32bit
+ifeq ($(WITH_GAPPS_32),true)
+include vendor/gapps/arm/arm-vendor.mk
 endif
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
